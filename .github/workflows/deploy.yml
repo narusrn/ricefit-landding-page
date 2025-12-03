@@ -1,0 +1,16 @@
+name: Deploy
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    env:
+      GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GCP_CREDENTIAL_JSON }}
+
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Run script
+        run: python app.py
