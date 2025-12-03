@@ -11,6 +11,8 @@ from dotenv import load_dotenv
 # sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 load_dotenv()
 
+st.write(os.environ)
+
 st.set_page_config(page_title="Ricefit API (Register)", layout="wide")
 
 # st.sidebar.page_link('app.py', label='Home')
@@ -137,6 +139,7 @@ if submitted:
         st.toast("🎉 ลงทะเบียนสำเร็จ!", icon="🎉")
         time.sleep(1.2)      # ให้ popup แสดงก่อน
         st.rerun()
+
 
 
 
