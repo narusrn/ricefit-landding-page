@@ -34,7 +34,7 @@ def validate_phone(phone):
 def recording_submition(data):
     try : 
         scope = ['https://www.googleapis.com/auth/spreadsheets']
-        credentials = ServiceAccountCredentials.from_json_keyfile_dict(os.environ["GOOGLE_APPLICATION_CREDENTIALS"], scope)
+        credentials = ServiceAccountCredentials.from_json_keyfile_dict(os.getenv("GOOGLE_APPLICATION_CREDENTIALS"), scope)
         spreadsheet_id = '1_YHFcF6DJ74AyshIW7iGzku1u30vBfCSQU2kD2bDuIc'
 
         rows = [
@@ -137,5 +137,6 @@ if submitted:
         st.toast("🎉 ลงทะเบียนสำเร็จ!", icon="🎉")
         time.sleep(1.2)      # ให้ popup แสดงก่อน
         st.rerun()
+
 
 
