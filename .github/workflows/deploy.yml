@@ -19,4 +19,4 @@ jobs:
 
 
       - name: Run script
-        run: python app.py
+        run: streamlit run app.py
