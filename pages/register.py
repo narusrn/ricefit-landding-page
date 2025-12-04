@@ -11,7 +11,38 @@ from datetime import datetime
 st.set_page_config(page_title="Ricefit API (Register)", layout="wide")
 
 st.sidebar.page_link('pages/getting_started.py', label='Getting Started')
+st.sidebar.markdown("""
+<style>
+/* base style */
+.sidebar-subitem {
+    margin-left: 16px;
+    font-size: 14px;
+    display: block;
+    color: #333 !important;   /* เริ่มต้นเป็นสีดำ */
+    padding: 4px 0;
+    text-decoration: none !important;
+}
+
+/* hover = ฟ้า */
+.sidebar-subitem:hover {
+    color: #1a73e8 !important;
+    text-decoration: none !important;
+}
+
+/* active (คลิกขณะกด) */
+.sidebar-subitem:active {
+    color: #1a73e8 !important;
+}
+
+}
+</style>
+
+<a class="sidebar-subitem" href="#การสมัครการใช้งาน">การสมัครการใช้งาน</a>
+<a class="sidebar-subitem" href="#การยืนยันสิทธิ์การใช้งาน">การยืนยันสิทธิ์การใช้งาน</a>
+""", unsafe_allow_html=True)
+
 st.sidebar.page_link('pages/register.py', label='Register')
+
 
 @st.dialog("กรุณายืนยันการดำเนินการ")
 def register_confirm():
@@ -168,6 +199,7 @@ st.markdown(
 กรุณาติดต่อ: **teera.phatrapornnant@nectec.or.th**
 """
 )
+
 
 
 
