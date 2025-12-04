@@ -8,7 +8,7 @@ st.sidebar.markdown("""
 <style>
 /* base style */
 .sidebar-subitem {
-    margin-left: 20px;
+    margin-left: 30px;
     font-size: 14px;
     display: block;
     
@@ -119,6 +119,7 @@ with col2:
 # -H 'accept: application/json' \
 # -H 'authorization: Bearer <ACCESS_TOKEN>'
 # ```
+
 
 
 
