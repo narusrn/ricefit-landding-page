@@ -6,5 +6,10 @@ st.sidebar.page_link('pages/register.py', label='Register')
 st.sidebar.page_link('pages/apidocs.py', label='API ที่ให้บริการ')
 
 st.title("API ที่ให้บริการ")
-st.info("⚙️ หน้านี้กำลังปรับปรุง...")
-st.write("โปรดกลับมาอีกครั้งเร็ว ๆ นี้")
+st.markdown("""
+<div style="text-align:center; margin-top: 120px;">
+    <h2>API ที่ให้บริการ</h2>
+    <p style="font-size: 18px; color: gray;">⚙️ หน้านี้กำลังปรับปรุง...</p>
+    <p>โปรดกลับมาอีกครั้งเร็ว ๆ นี้</p>
+</div>
+""", unsafe_allow_html=True)
