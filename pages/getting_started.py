@@ -35,6 +35,7 @@ st.sidebar.markdown("""
 """, unsafe_allow_html=True)
 
 st.sidebar.page_link('pages/register.py', label='Register')
+st.sidebar.page_link('pages/apidocs/ricefit.py', label='API ที่ให้บริการ')
 
 # st.sidebar.title("เริ่มต้นการใช้งาน Ricefit API")
 
@@ -119,6 +120,7 @@ with col2:
 # -H 'accept: application/json' \
 # -H 'authorization: Bearer <ACCESS_TOKEN>'
 # ```
+
 
 
 
