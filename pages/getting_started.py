@@ -27,10 +27,6 @@ st.sidebar.markdown("""
     color: #1a73e8 !important;
 }
 
-/* visited (ห้ามเปลี่ยนสีหลังคลิก) */
-.sidebar-subitem:visited {
-    color: #333 !important;   /* บังคับให้กลับเป็นสีดำเสมอ */
-    text-decoration: none !important;
 }
 </style>
 
@@ -123,6 +119,7 @@ with col2:
 # -H 'accept: application/json' \
 # -H 'authorization: Bearer <ACCESS_TOKEN>'
 # ```
+
 
 
 
