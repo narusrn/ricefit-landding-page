@@ -13,7 +13,7 @@ st.title("เริ่มต้นการใช้งาน Ricefit API")
 st.markdown("""
 เพื่อใช้งาน API จำเป็นต้องสมัครสมาชิกผ่านเว็บไซต์ของเรา  
 
-- สมัครสมาชิก: https://.../register  
+- สมัครสมาชิก: https://ricefit-landding-page-wcbsvzpxrxwy5atzdeuxdf.streamlit.app/register
 
 หลังจากสมัครสมาชิกเรียบร้อยแล้ว ระบบจะส่ง **OAuth Access Token** ให้ทางอีเมลของคุณ  
 โปรดตรวจสอบอีเมลและเก็บ Token ไว้ให้ดี เพราะเป็นรหัสสำหรับเข้าถึง API ของคุณ  
@@ -27,6 +27,7 @@ curl -X GET \
 ```
 
 """)
+
 
 
 
