@@ -7,36 +7,33 @@ import streamlit as st
 from oauth2client.service_account import ServiceAccountCredentials
 from googleapiclient.discovery import build
 from datetime import datetime
-# sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
-@st.dialog("ยืนยันการลงทะเบียน")
+
+@st.dialog("กรุณายืนยันการดำเนินการ")
 def register_confirm():
     st.write("คุณต้องการยืนยันการลงทะเบียนหรือไม่?")
 
     col1, col2 = st.columns(2)
     with col1:
         if st.button("ยืนยัน"):
-
             data = st.session_state["pending_data"]
-            # Validate all fields
-            validations = [
-                validate_email(data["email"]),
-                validate_phone(data["mobile"]),
-            ]
-        
-            # Check if all validations pass
-            if all(v[0] for v in validations):
-                st.success("Form submitted successfully!")
-                # Update session state
-                recording_submition(data)
+            recording_submition(data)
+            reset_form()
             st.rerun()
-    with col2:
-        st.button("ยกเลิก")
 
+    with col2:
+        if st.button("ยกเลิก"):
+            st.rerun()
+
+def reset_form():
+    for key in ["first_name", "last_name", "email", "mobile", "occupation",
+                "organization", "location", "org_type", "phone", "purpose",
+                "pending_data", "to_submit"]:
+        st.session_state[key] = ""
 
 st.set_page_config(page_title="Ricefit API (Register)", layout="wide")
 
-# st.sidebar.page_link('app.py', label='Home')
+st.sidebar.page_link('app.py', label='Home')
 st.sidebar.page_link('pages/getting_started.py', label='Getting Started')
 
 st.sidebar.page_link('pages/register.py', label='Register')
@@ -85,16 +82,16 @@ with st.form("register_form"):
 
     # ------------- LEFT COLUMN -------------
     with col1:
-        first_name = st.text_input("ชื่อ")
-        last_name = st.text_input("นามสกุล")
+        first_name = st.text_input("ชื่อ", key="first_name")
+        last_name = st.text_input("นามสกุล", key="last_name")
 
-        email = st.text_input("อีเมล")
+        email = st.text_input("อีเมล", key="email")
         if email:
             is_valid, message = validate_email(email)
             if not is_valid:
                 st.error(message)
 
-        mobile = st.text_input("หมายเลขโทรศัพท์มือถือ")
+        mobile = st.text_input("หมายเลขโทรศัพท์มือถือ", key="mobile")
         if mobile:
             is_valid, message = validate_phone(mobile)
             if not is_valid:
@@ -110,9 +107,10 @@ with st.form("register_form"):
                 "พนักงานองค์กร/บริษัทเอกชน",
                 "ข้าราชการ/พนักงานหน่วยงานของรัฐ",
             ],
+            key="occupation"
         )
-        organization = st.text_input("หน่วยงาน")
-        location = st.text_input("สถานที่ตั้ง")
+        organization = st.text_input("หน่วยงาน", key="organization")
+        location = st.text_input("สถานที่ตั้ง", key="location")
         org_type = st.selectbox(
             "ประเภทหน่วยงาน",
             [
@@ -122,9 +120,10 @@ with st.form("register_form"):
                 "หน่วยงานราชการ/หน่วยงานในกำกับของรัฐ",
                 "หน่วยงานความร่วมมือระหว่างประเทศ",
             ],
+            key="org_type"
         )
-        phone = st.text_input("เบอร์โทรศัพท์ (หน่วยงาน)")
-        purpose = st.text_area("จุดประสงค์")
+        phone = st.text_input("เบอร์โทรศัพท์ (หน่วยงาน)", key="phone")
+        purpose = st.text_area("จุดประสงค์", key="purpose")
 
     submitted = st.form_submit_button("สมัครใช้งาน")
 
@@ -133,25 +132,33 @@ with st.form("register_form"):
 # ======================
 if submitted:
 
-    # เก็บข้อมูลไว้ก่อน
-    st.session_state["pending_data"] = {
-        "first_name": first_name,
-        "last_name": last_name,
-        "email": email,
-        "mobile": mobile,
-        "occupation": occupation,
-        "organization": organization,
-        "location": location,
-        "org_type": org_type,
-        "phone": phone,
-        "purpose": purpose,
-        "created_at": datetime.now().isoformat(),
-        'submitted': True
-    }
+    validations = [
+        validate_email(email),
+        validate_phone(mobile),
+    ]
+        
+    if all(v[0] for v in validations):
 
-    register_confirm()
+        # เก็บข้อมูลไว้ก่อน
+        st.session_state["pending_data"] = {
+            "first_name": first_name,
+            "last_name": last_name,
+            "email": email,
+            "mobile": mobile,
+            "occupation": occupation,
+            "organization": organization,
+            "location": location,
+            "org_type": org_type,
+            "phone": phone,
+            "purpose": purpose,
+            "created_at": datetime.now().isoformat(),
+            'submitted': True
+        }
 
+        register_confirm()
 
+    else : 
+        st.error("กรุณากรอกข้อมูลให้ครบถ้วนและถูกต้อง")
 
 
 
