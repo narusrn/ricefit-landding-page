@@ -6,37 +6,31 @@ st.set_page_config(page_title="Ricefit API (Home)", layout="wide")
 st.sidebar.page_link('pages/getting_started.py', label='Getting Started')
 st.sidebar.markdown("""
 <style>
-/* ลบ underline จาก link ทุกสถานะ */
-.sidebar-subitem, 
-.sidebar-subitem:link, 
-.sidebar-subitem:visited, 
-.sidebar-subitem:hover, 
-.sidebar-subitem:active {
-    text-decoration: none !important;
-}
-
 /* base style */
 .sidebar-subitem {
     margin-left: 16px;
     font-size: 14px;
     display: block;
-    color: #333 !important;
+    color: #333 !important;   /* เริ่มต้นเป็นสีดำ */
     padding: 4px 0;
+    text-decoration: none !important;
 }
 
-/* hover = สีฟ้า */
+/* hover = ฟ้า */
 .sidebar-subitem:hover {
     color: #1a73e8 !important;
+    text-decoration: none !important;
 }
 
-/* clicked (active) = สีฟ้า */
+/* active (คลิกขณะกด) */
 .sidebar-subitem:active {
     color: #1a73e8 !important;
 }
 
-/* visited link = ฟ้า (ให้เหมือนถูกเลือก) */
+/* visited (ห้ามเปลี่ยนสีหลังคลิก) */
 .sidebar-subitem:visited {
-    color: #1a73e8 !important;
+    color: #333 !important;   /* บังคับให้กลับเป็นสีดำเสมอ */
+    text-decoration: none !important;
 }
 </style>
 
@@ -129,6 +123,7 @@ with col2:
 # -H 'accept: application/json' \
 # -H 'authorization: Bearer <ACCESS_TOKEN>'
 # ```
+
 
 
 
