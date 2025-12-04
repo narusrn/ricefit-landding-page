@@ -12,7 +12,7 @@ st.sidebar.markdown("""
     font-size: 14px;
     display: block;
     
-    padding: 4px 0;
+    padding: 8px 0;
     text-decoration: none;
 }
 
