@@ -5,7 +5,6 @@ st.sidebar.page_link('pages/getting_started.py', label='Getting Started')
 st.sidebar.page_link('pages/register.py', label='Register')
 st.sidebar.page_link('pages/apidocs.py', label='API ที่ให้บริการ')
 
-st.title("API ที่ให้บริการ")
 st.markdown("""
 <div style="text-align:center; margin-top: 120px;">
     <h2>API ที่ให้บริการ</h2>
