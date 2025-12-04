@@ -17,13 +17,13 @@ st.sidebar.markdown("""
 
 /* hover = ฟ้า */
 .sidebar-subitem:hover {
-    color: #1a73e8 !important;
-    text-decoration: none !important;
+    color: #1a73e8 ;
+    text-decoration: none ;
 }
 
 /* active (คลิกขณะกด) */
 .sidebar-subitem:active {
-    color: #1a73e8 !important;
+    color: #1a73e8 ;
 }
 
 }
@@ -118,6 +118,7 @@ with col2:
 # -H 'accept: application/json' \
 # -H 'authorization: Bearer <ACCESS_TOKEN>'
 # ```
+
 
 
 
