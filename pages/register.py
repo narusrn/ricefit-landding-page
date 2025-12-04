@@ -8,6 +8,10 @@ from oauth2client.service_account import ServiceAccountCredentials
 from googleapiclient.discovery import build
 from datetime import datetime
 
+st.set_page_config(page_title="Ricefit API (Register)", layout="wide")
+
+st.sidebar.page_link('pages/getting_started.py', label='Getting Started')
+st.sidebar.page_link('pages/register.py', label='Register')
 
 @st.dialog("กรุณายืนยันการดำเนินการ")
 def register_confirm():
@@ -30,13 +34,6 @@ def reset_form():
                 "organization", "location", "org_type", "phone", "purpose",
                 "pending_data", "to_submit"]:
         st.session_state[key] = ""
-
-st.set_page_config(page_title="Ricefit API (Register)", layout="wide")
-
-st.sidebar.page_link('app.py', label='Home')
-st.sidebar.page_link('pages/getting_started.py', label='Getting Started')
-
-st.sidebar.page_link('pages/register.py', label='Register')
 
 def validate_email(email):
     pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
@@ -159,6 +156,7 @@ if submitted:
 
     else : 
         st.error("กรุณากรอกข้อมูลให้ครบถ้วนและถูกต้อง")
+
 
 
 
