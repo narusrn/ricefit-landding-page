@@ -1,7 +1,7 @@
 import streamlit as st
 
 import os
-creds = os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
+creds = os.getenv("type")
 st.write(creds)
 
 st.set_page_config(page_title="Ricefit API (Home)", layout="wide")
@@ -31,3 +31,4 @@ curl -X GET \
 ```
 
 """)
+
