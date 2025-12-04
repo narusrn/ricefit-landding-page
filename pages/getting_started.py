@@ -93,7 +93,7 @@ with col1:
 with col2:
     st.code("""
     curl -I -X GET \\
-    'https://www.nectec.or.th/innovation/innovation-service/digital-agri-api/ricefi' \\
+    'https://www.nectec.or.th/innovation/innovation-service/digital-agri-api/ricefit' \\
     -H 'accept: application/json' \\
     -H 'authorization: Bearer bIBlfvqQqS2lLPWZ... <- access token'
     """, language="bash")
@@ -120,6 +120,7 @@ with col2:
 # -H 'accept: application/json' \
 # -H 'authorization: Bearer <ACCESS_TOKEN>'
 # ```
+
 
 
 
