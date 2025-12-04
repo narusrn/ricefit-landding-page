@@ -4,15 +4,21 @@ st.set_page_config(page_title="Ricefit API (Home)", layout="wide")
 
 # st.sidebar.page_link('app.py', label='Home')
 st.sidebar.page_link('pages/getting_started.py', label='Getting Started')
+st.sidebar.markdown("""
+<div style="margin-left: 20px; font-size: 14px;">
+    <a href="#การสมัครการใช้งาน">• การสมัครการใช้งาน</a><br>
+    <a href="#การยืนยันสิทธิ์การใช้งาน">• การยืนยันสิทธิ์การใช้งาน</a>
+</div>
+""", unsafe_allow_html=True)
 
 st.sidebar.page_link('pages/register.py', label='Register')
 
-st.sidebar.title("เริ่มต้นการใช้งาน Ricefit API")
+# st.sidebar.title("เริ่มต้นการใช้งาน Ricefit API")
 
-st.sidebar.markdown("""
-- [การสมัครการใช้งาน](#การสมัครการใช้งาน)
-- [การยืนยันสิทธิ์การใช้งาน](#การยืนยันสิทธิ์การใช้งาน)
-""")
+# st.sidebar.markdown("""
+# - [การสมัครการใช้งาน](#การสมัครการใช้งาน)
+# - [การยืนยันสิทธิ์การใช้งาน](#การยืนยันสิทธิ์การใช้งาน)
+# """)
 
 
 st.header("เริ่มต้นการใช้งาน Ricefit API")
@@ -90,6 +96,7 @@ with col2:
 # -H 'accept: application/json' \
 # -H 'authorization: Bearer <ACCESS_TOKEN>'
 # ```
+
 
 
 
