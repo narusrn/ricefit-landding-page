@@ -37,7 +37,7 @@ st.sidebar.markdown("""
 }
 </style>
 
-<a class="sidebar-subitem" href="pages/getting_started#การสมัครการใช้งาน">การสมัครการใช้งาน</a>
+<a class="sidebar-subitem" href="/?page=getting_started&section=การสมัครการใช้งาน#การสมัครการใช้งาน">การสมัครการใช้งาน</a>
 <a class="sidebar-subitem" href="#การยืนยันสิทธิ์การใช้งาน">การยืนยันสิทธิ์การใช้งาน</a>
 """, unsafe_allow_html=True)
 
@@ -199,6 +199,7 @@ st.markdown(
 กรุณาติดต่อ: **teera.phatrapornnant@nectec.or.th**
 """
 )
+
 
 
 
