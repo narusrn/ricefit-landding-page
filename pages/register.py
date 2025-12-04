@@ -46,13 +46,24 @@ def validate_email(email):
         return False, "Please enter a valid email address"
     return True, ""
 
-
 def validate_phone(phone):
     pattern = r'^\d{9,10}$'
     if not re.match(pattern, phone):
         return False, "Please enter a valid phone number"
     return True, ""
 
+def validated_firstname(firstname):
+    if not name.strip() :
+        return False, "Please enter a valid first name"
+
+    return True, ""
+    
+def validated_lastname(lastname):
+    if not name.strip() :
+        return False, "Please enter a valid last name"
+
+    return True, ""
+    
 def recording_submition(data):
     try : 
         scope = ['https://www.googleapis.com/auth/spreadsheets']
@@ -85,7 +96,16 @@ with st.form("register_form"):
     # ------------- LEFT COLUMN -------------
     with col1:
         first_name = st.text_input("ชื่อ", key="first_name")
+        if first_name:
+            is_valid, message = validate_first_name(first_name)
+            if not is_valid:
+                st.error(message)
+                
         last_name = st.text_input("นามสกุล", key="last_name")
+        if last_name:
+            is_valid, message = validate_last_name(last_name)
+            if not is_valid:
+                st.error(message)
 
         email = st.text_input("อีเมล", key="email")
         if email:
@@ -125,7 +145,7 @@ with st.form("register_form"):
             key="org_type"
         )
         phone = st.text_input("เบอร์โทรศัพท์ (หน่วยงาน)", key="phone")
-        purpose = st.text_area("จุดประสงค์", key="purpose")
+        purpose = st.text_area("วัตถุประสงค์การใช้งาน", key="purpose")
 
     submitted = st.form_submit_button("สมัครใช้งาน")
 
@@ -135,6 +155,8 @@ with st.form("register_form"):
 if submitted:
 
     validations = [
+        validate_firstname(firstname),
+        validate_lastname(lastname),
         validate_email(email),
         validate_phone(mobile),
     ]
@@ -173,6 +195,7 @@ st.markdown(
 กรุณาติดต่อ: **teera.phatrapornnant@nectec.or.th**
 """
 )
+
 
 
 
