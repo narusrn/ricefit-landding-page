@@ -25,7 +25,7 @@ st.markdown("""
 
 """)
 
-st.image("assets/register-from.png", use_column_width=True)
+st.image("assets/register-from.png")
 
 st.markdown("""
 
@@ -42,6 +42,7 @@ st.markdown("""
 # -H 'accept: application/json' \
 # -H 'authorization: Bearer <ACCESS_TOKEN>'
 # ```
+
 
 
 
