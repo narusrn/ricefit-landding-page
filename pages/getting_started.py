@@ -1,8 +1,5 @@
 import streamlit as st
 
-creds = st.secrets["GOOGLE_APPLICATION_CREDENTIALS"]
-st.write(creds)
-
 st.set_page_config(page_title="Ricefit API (Home)", layout="wide")
 
 # st.sidebar.page_link('app.py', label='Home')
@@ -30,6 +27,7 @@ curl -X GET \
 ```
 
 """)
+
 
 
 
