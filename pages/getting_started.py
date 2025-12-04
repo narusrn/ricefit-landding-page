@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.set_page_config(page_title="Ricefit API (Home)", layout="wide")
+st.set_page_config(page_title="RiceFit API (Home)", layout="wide")
 
 # st.sidebar.page_link('app.py', label='Home')
 st.sidebar.page_link('pages/getting_started.py', label='Getting Started')
@@ -120,6 +120,7 @@ with col2:
 # -H 'accept: application/json' \
 # -H 'authorization: Bearer <ACCESS_TOKEN>'
 # ```
+
 
 
 
