@@ -155,8 +155,8 @@ with st.form("register_form"):
 if submitted:
 
     validations = [
-        validate_firstname(firstname),
-        validate_lastname(lastname),
+        validate_firstname(first_name),
+        validate_lastname(last_name),
         validate_email(email),
         validate_phone(mobile),
     ]
@@ -195,6 +195,7 @@ st.markdown(
 กรุณาติดต่อ: **teera.phatrapornnant@nectec.or.th**
 """
 )
+
 
 
 
