@@ -7,15 +7,23 @@ st.sidebar.page_link('pages/getting_started.py', label='Getting Started')
 
 st.sidebar.page_link('pages/register.py', label='Register')
 
-st.title("เริ่มต้นการใช้งาน Ricefit API")
+st.sidebar.title("เริ่มต้นการใช้งาน Ricefit API")
+
+st.sidebar.markdown("""
+- [การสมัครการใช้งาน](#การสมัครการใช้งาน)
+- [การยืนยันสิทธิ์การใช้งาน](#การยืนยันสิทธิ์การใช้งาน)
+""")
+
+
+st.header("เริ่มต้นการใช้งาน Ricefit API")
 
 st.markdown("""
-ในการใช้งานข้อมูล ... ผ่านระบบ API จะต้องทำการสมัครใช้งานก่อน และส่งข้อมูลยืนยันตัวตนทุกครั้งที่เรียกการใช้งาน API
+ในการใช้งานข้อมูล Ricefit ผ่านระบบ API จะต้องทำการสมัครใช้งานก่อน และส่งข้อมูลยืนยันตัวตนทุกครั้งที่เรียกการใช้งาน API
 
 ระบบยืนยันตัวตนของ API ใช้ตามมาตรฐาน OAuth 2.0 โดยรองรับวิธีการขอ Access Token ผ่านทางเว็บไซต์บริการข้อมูล RiceFit API เท่านั้น ซึ่งนักพัฒนาต้องทำตามขั้นตอนการสมัครและใช้งาน ดังนี้
 """)
 
-st.title("การสมัครการใช้งาน")
+st.header("การสมัครการใช้งาน", anchor="การสมัครการใช้งาน")
 
 st.markdown("""
 
@@ -25,7 +33,7 @@ st.markdown("""
 
 """)
 
-st.image("assets/register-from.png")
+st.image(r"C:\Users\User\Desktop\Project\Nectec\Landding Page\assets\register-from.png")
 
 st.markdown("""
 
@@ -34,8 +42,7 @@ st.markdown("""
 
 """)
 
-
-st.title("การยืนยันสิทธิ์การใช้งาน (Authentication)")
+st.header("การยืนยันสิทธิ์การใช้งาน", anchor="การยืนยันสิทธิ์การใช้งาน")
 
 col1, col2 = st.columns([1, 1])   # ซ้ายกว้างกว่าขวาเล็กน้อย
 
@@ -83,7 +90,6 @@ with col2:
 # -H 'accept: application/json' \
 # -H 'authorization: Bearer <ACCESS_TOKEN>'
 # ```
-
 
 
 
