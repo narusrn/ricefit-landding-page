@@ -11,7 +11,6 @@ st.sidebar.markdown("""
     margin-left: 16px;
     font-size: 14px;
     display: block;
-    color: #333 !important;   /* เริ่มต้นเป็นสีดำ */
     padding: 4px 0;
     text-decoration: none !important;
 }
@@ -119,6 +118,7 @@ with col2:
 # -H 'accept: application/json' \
 # -H 'authorization: Bearer <ACCESS_TOKEN>'
 # ```
+
 
 
 
