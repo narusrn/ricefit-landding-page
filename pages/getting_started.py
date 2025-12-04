@@ -11,8 +11,9 @@ st.sidebar.markdown("""
     margin-left: 16px;
     font-size: 14px;
     display: block;
+    
     padding: 4px 0;
-    text-decoration: none !important;
+    text-decoration: none;
 }
 
 /* hover = ฟ้า */
@@ -118,6 +119,7 @@ with col2:
 # -H 'accept: application/json' \
 # -H 'authorization: Bearer <ACCESS_TOKEN>'
 # ```
+
 
 
 
