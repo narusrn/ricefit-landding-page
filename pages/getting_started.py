@@ -56,9 +56,9 @@ with col1:
 with col2:
     st.code("""
     curl -I -X GET \\
-    'https://data.tmd.go.th/nwpapiv1/forecast/daily/datarange' \\
+    'https://www.nectec.or.th/innovation/innovation-service/digital-agri-api/ricefi' \\
     -H 'accept: application/json' \\
-    -H 'authorization: Bearer bIBlfvqQqS2lLPWZ...'
+    -H 'authorization: Bearer bIBlfvqQqS2lLPWZ... <- access token'
     """, language="bash")
 
     st.code("""
@@ -83,6 +83,7 @@ with col2:
 # -H 'accept: application/json' \
 # -H 'authorization: Bearer <ACCESS_TOKEN>'
 # ```
+
 
 
 
