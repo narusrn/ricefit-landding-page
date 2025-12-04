@@ -12,7 +12,6 @@ st.markdown("""
     <p style="font-size: 18px; color: gray;">⚙️ หน้านี้กำลังปรับปรุง...</p>
     <p>โปรดกลับมาอีกครั้งเร็ว ๆ นี้</p>
 
-    <a href="https://www.nectec.or.th/innovation/innovation-service/digital-agri-api/docs" target="_blank" rel="noopener noreferrer">
-    เปิด Digital-Agri API Docs</a>
+    <a href="https://www.nectec.or.th/innovation/innovation-service/digital-agri-api/docs" target="_blank" rel="noopener noreferrer">เปิด Digital-Agri API Docs</a>
 </div>
 """, unsafe_allow_html=True)
