@@ -9,6 +9,31 @@ from googleapiclient.discovery import build
 from datetime import datetime
 # sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
+@st.dialog("ยืนยันการลงทะเบียน")
+def register_confirm():
+    st.write("คุณต้องการยืนยันการลงทะเบียนหรือไม่?")
+
+    col1, col2 = st.columns(2)
+    with col1:
+        if st.button("ยืนยัน"):
+
+            data = st.session_state["pending_data"]
+            # Validate all fields
+            validations = [
+                validate_email(data["email"]),
+                validate_phone(data["mobile"]),
+            ]
+        
+            # Check if all validations pass
+            if all(v[0] for v in validations):
+                st.success("Form submitted successfully!")
+                # Update session state
+                recording_submition(data)
+            st.rerun()
+    with col2:
+        st.button("ยกเลิก")
+
+
 st.set_page_config(page_title="Ricefit API (Register)", layout="wide")
 
 # st.sidebar.page_link('app.py', label='Home')
@@ -107,36 +132,24 @@ with st.form("register_form"):
 # Submit Logic
 # ======================
 if submitted:
-    # Validate all fields
-    validations = [
-        validate_email(email),
-        validate_phone(mobile),
-    ]
 
-    # Check if all validations pass
-    if all(v[0] for v in validations):
-        st.success("Form submitted successfully!")
-        # Update session state
-        recording_submition({
-            "first_name": first_name,
-            "last_name": last_name,
-            "email": email,
-            "mobile": mobile,
-            "occupation": occupation,
-            "organization": organization,
-            "location": location,
-            "org_type": org_type,
-            "phone": phone,
-            "purpose": purpose,
-            "created_at": datetime.now().isoformat(),
-            'submitted': True
-        })
-        
-        st.toast("🎉 ลงทะเบียนสำเร็จ!", icon="🎉")
-        time.sleep(1.2)      # ให้ popup แสดงก่อน
-        st.rerun()
+    # เก็บข้อมูลไว้ก่อน
+    st.session_state["pending_data"] = {
+        "first_name": first_name,
+        "last_name": last_name,
+        "email": email,
+        "mobile": mobile,
+        "occupation": occupation,
+        "organization": organization,
+        "location": location,
+        "org_type": org_type,
+        "phone": phone,
+        "purpose": purpose,
+        "created_at": datetime.now().isoformat(),
+        'submitted': True
+    }
 
-
+    register_confirm()
 
 
 
