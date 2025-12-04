@@ -32,8 +32,49 @@ st.markdown("""
 หลังจากสมัครสมาชิกเรียบร้อยแล้ว ระบบจะส่ง **OAuth Access Token** ให้ทางอีเมลของคุณ  
 โปรดตรวจสอบอีเมลและเก็บ Token ไว้ให้ดี เพราะเป็นรหัสสำหรับเข้าถึง API ของคุณ  
 
-
 """)
+
+
+st.title("การยืนยันสิทธิ์การใช้งาน (Authentication)")
+
+col1, col2 = st.columns([1, 1])   # ซ้ายกว้างกว่าขวาเล็กน้อย
+
+with col1:
+    st.markdown("""
+    ในการเรียกใช้ API ที่เปิดให้บริการทุกครั้ง ผู้ใช้จะต้องมีการยืนยันสิทธิ์ (Authentication) ด้วย OAuth Access Token ของผู้ใช้ที่ได้สร้างขึ้นไว้บนเว็บไซต์ แนบเข้ามากับ Header ของ HTTP Request บน parameter "authorization" ก่อนส่งเข้ามายัง URL ของ API นั้น
+
+    ---
+                
+    ✅  หากยืนยันตัวตนสำเร็จและสามารถเรียกข้อมูลได้สำเร็จ API จะส่งกลับข้อมูลพร้อมด้วย HTTP status code 200 (OK)
+                
+    ---
+    
+    ❌  หากไม่มีการส่ง OAuth access token หรือยืนยันตัวตนไม่สำเร็จ API จะส่งกลับ Error message พร้อมด้วย HTTP status code 401 (Unauthorized)
+    
+    """)
+
+with col2:
+    st.code("""
+    curl -I -X GET \\
+    'https://data.tmd.go.th/nwpapiv1/forecast/daily/datarange' \\
+    -H 'accept: application/json' \\
+    -H 'authorization: Bearer bIBlfvqQqS2lLPWZ...'
+    """, language="bash")
+
+    st.code("""
+    HTTP/1.1 200 OK
+    Server: nginx/1.10.2
+    Content-Type: application/json
+    Transfer-Encoding: chunked
+    Connection: keep-alive
+    X-Powered-By: PHP/7.1.8
+    Cache-Control: no-cache, private
+    Date: Sun, 27 Aug 2017 12:06:57 GMT
+    X-RateLimit-Limit: 60
+    X-RateLimit-Remaining: 59
+    X-Datapoint-Limit: 100000
+    X-Datapoint-Remaining: 997562
+    """, language="bash")
 
 # ### ตัวอย่างการเรียก API
 # ```bash
@@ -42,6 +83,7 @@ st.markdown("""
 # -H 'accept: application/json' \
 # -H 'authorization: Bearer <ACCESS_TOKEN>'
 # ```
+
 
 
 
