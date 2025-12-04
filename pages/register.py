@@ -8,7 +8,7 @@ from oauth2client.service_account import ServiceAccountCredentials
 from googleapiclient.discovery import build
 from datetime import datetime
 
-st.set_page_config(page_title="Ricefit API (Register)", layout="wide")
+st.set_page_config(page_title="RiceFit API (Register)", layout="wide")
 
 st.sidebar.page_link('pages/getting_started.py', label='Getting Started')
 st.sidebar.page_link('pages/register.py', label='Register')
@@ -77,7 +77,7 @@ def recording_submition(data):
         print(f"[recording_submition] ERROR: {e}", file=sys.stderr, flush=True)
 
 
-st.title("ลงทะเบียนใช้งาน API")
+st.title("ลงทะเบียนใช้งาน RiceFit API")
 
 with st.form("register_form"):
     col1, col2 = st.columns(2)
@@ -173,6 +173,7 @@ st.markdown(
 กรุณาติดต่อ: **teera.phatrapornnant@nectec.or.th**
 """
 )
+
 
 
 
