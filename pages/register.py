@@ -11,8 +11,8 @@ from datetime import datetime
 st.set_page_config(page_title="Ricefit API (Register)", layout="wide")
 
 st.sidebar.page_link('pages/getting_started.py', label='Getting Started')
-
 st.sidebar.page_link('pages/register.py', label='Register')
+st.sidebar.page_link('pages/apidocs.py', label='API ที่ให้บริการ')
 
 
 @st.dialog("กรุณายืนยันการดำเนินการ")
@@ -170,6 +170,7 @@ st.markdown(
 กรุณาติดต่อ: **teera.phatrapornnant@nectec.or.th**
 """
 )
+
 
 
 
