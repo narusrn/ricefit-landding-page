@@ -52,13 +52,13 @@ def validate_phone(phone):
         return False, "Please enter a valid phone number"
     return True, ""
 
-def validated_firstname(firstname):
+def validate_firstname(firstname):
     if not name.strip() :
         return False, "Please enter a valid first name"
 
     return True, ""
     
-def validated_lastname(lastname):
+def validate_lastname(lastname):
     if not name.strip() :
         return False, "Please enter a valid last name"
 
@@ -195,6 +195,7 @@ st.markdown(
 กรุณาติดต่อ: **teera.phatrapornnant@nectec.or.th**
 """
 )
+
 
 
 
