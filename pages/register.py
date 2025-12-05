@@ -96,6 +96,7 @@ with st.form("register_form"):
             key="occupation"
         )
         organization = st.text_input("หน่วยงาน", key="organization")
+        error_placeholders["organization"] = st.empty()
         location = st.text_input("สถานที่ตั้ง", key="location")
         org_type = st.selectbox(
             "ประเภทหน่วยงาน",
@@ -145,3 +146,4 @@ st.markdown(
 กรุณาติดต่อ: **teera.phatrapornnant@nectec.or.th**
 """
 )
+
