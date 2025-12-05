@@ -19,12 +19,12 @@ fields = [
     {"key": "last_name", "label": "นามสกุล", "required": True, "validator": lambda x: bool(x.strip())},
     {"key": "email", "label": "อีเมล", "required": True, "validator": lambda x: re.match(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$', x)},
     {"key": "mobile", "label": "หมายเลขโทรศัพท์มือถือ", "required": True, "validator": lambda x: re.match(r'^\d{9,10}$', x)},
-    {"key": "purpose", "label": "วัตถุประสงค์การใช้งาน", "required": True, "validator": lambda x: bool(x.strip())},
     {"key": "occupation", "label": "อาชีพ", "required": False},
-    {"key": "organization", "label": "หน่วยงาน", "required": True, "validator": lambda x: bool(x.strip())},
+    {"key": "organization", "label": "หน่วยงาน", "required": False},
     {"key": "location", "label": "สถานที่ตั้ง", "required": False},
     {"key": "org_type", "label": "ประเภทหน่วยงาน", "required": False},
     {"key": "phone", "label": "เบอร์โทรศัพท์ (หน่วยงาน)", "required": False},
+    {"key": "purpose", "label": "วัตถุประสงค์การใช้งาน", "required": True, "validator": lambda x: bool(x.strip())},
 ]
 
 # ------------------------------
@@ -130,20 +130,9 @@ if submitted:
 
     # ถ้าไม่มี error ให้ไป confirm dialog
     if not errors:
-        st.session_state["pending_data"] = { 
-            "first_name": first_name, 
-            "last_name": last_name, 
-            "email": email, 
-            "mobile": mobile, 
-            "occupation": occupation,
-            "organization": organization, 
-            "location": location, 
-            "org_type": org_type, 
-            "phone": phone, 
-            "purpose": purpose, 
-            "created_at": datetime.now().isoformat(), 
-            'submitted': True 
-        }
+        st.session_state["pending_data"] = {f["key"]: st.session_state.get(f["key"], "") for f in fields}
+        st.session_state["pending_data"]["created_at"] = datetime.now().isoformat()
+        st.session_state["pending_data"]["submitted"] = True
         register_confirm()
 
 # ------------------------------
@@ -157,5 +146,6 @@ st.markdown(
 กรุณาติดต่อ: **teera.phatrapornnant@nectec.or.th**
 """
 )
+
 
 
