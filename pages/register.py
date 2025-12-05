@@ -130,9 +130,20 @@ if submitted:
 
     # ถ้าไม่มี error ให้ไป confirm dialog
     if not errors:
-        st.session_state["pending_data"] = {f["key"]: st.session_state.get(f["key"], "") for f in fields}
-        st.session_state["pending_data"]["created_at"] = datetime.now().isoformat()
-        st.session_state["pending_data"]["submitted"] = True
+        st.session_state["pending_data"] = { 
+            "first_name": first_name, 
+            "last_name": last_name, 
+            "email": email, 
+            "mobile": mobile, 
+            "occupation": occupation,
+            "organization": organization, 
+            "location": location, 
+            "org_type": org_type, 
+            "phone": phone, 
+            "purpose": purpose, 
+            "created_at": datetime.now().isoformat(), 
+            'submitted': True 
+        }
         register_confirm()
 
 # ------------------------------
@@ -146,4 +157,5 @@ st.markdown(
 กรุณาติดต่อ: **teera.phatrapornnant@nectec.or.th**
 """
 )
+
 
