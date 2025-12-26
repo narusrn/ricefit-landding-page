@@ -1,0 +1,22 @@
+name: Keep Streamlit App Awake
+
+on:
+  schedule:
+    - cron: "0 */10 * * *"   # วันละครั้ง
+  workflow_dispatch:
+
+jobs:
+  keep-awake:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Create empty commit
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git commit --allow-empty -m "keep app awake"
+
+      - name: Push commit
+        run: git push
