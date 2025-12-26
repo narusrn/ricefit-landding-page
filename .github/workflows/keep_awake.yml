@@ -1,5 +1,8 @@
 name: Keep Streamlit App Awake
 
+permissions:
+  contents: write   # <<< สำคัญมาก
+
 on:
   schedule:
     - cron: "0 */10 * * *"   # วันละครั้ง
