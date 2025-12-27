@@ -5,7 +5,7 @@ permissions:
 
 on:
   schedule:
-    - cron: "0 */10 * * *"   # วันละครั้ง
+    - cron: "0 */5 * * *"   # วันละครั้ง
   workflow_dispatch:
 
 jobs:
