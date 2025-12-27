@@ -3,6 +3,7 @@ import streamlit as st
 from datetime import datetime
 from oauth2client.service_account import ServiceAccountCredentials
 from googleapiclient.discovery import build
+from typing import Dict, Any
 import sys
 
 st.set_page_config(page_title="RiceFit API (Register)", layout="wide")
@@ -51,6 +52,93 @@ def reset_form():
     for field in fields + [{"key": "pending_data"}, {"key": "to_submit"}]:
         st.session_state[field["key"] if isinstance(field, dict) else field] = ""
 
+from typing import Tuple
+
+def send_api_key_email(
+    recipient_email: str,
+    client_name: str,
+    api_key: str
+) -> Tuple[bool, str]:
+    """
+    Send API key email to client.
+    """
+
+    if not recipient_email or not client_name or not api_key:
+        return False, "recipient_email, client_name, and api_key are required"
+
+    msg = EmailMessage()
+    msg["From"] = st.secrets["SENDER_EMAIL"]
+    msg["To"] = recipient_email
+    msg["Subject"] = "Ricefit API Key สำหรับการใช้งาน Digital Agri API"
+    msg["Reply-To"] = "no-reply@ricefit.ai"  # กำกับเชิงระบบ
+
+    msg.set_content(f"""
+        [Do not reply – This is an automated message]
+        
+        เรียน คุณ{client_name}
+        
+        ทางทีม Ricefit ได้จัดเตรียม API Key สำหรับการใช้งาน Digital Agri API ของท่านเรียบร้อยแล้ว โดยมีรายละเอียดดังนี้
+        
+        API Key:
+        {api_key}
+        
+        การเริ่มต้นใช้งาน
+        ท่านสามารถศึกษาเอกสารอ้างอิง API ได้ที่:
+        https://www.nectec.or.th/innovation/innovation-service/digital-agri-api/docs
+        
+        เอกสารดังกล่าวเป็น FastAPI Swagger UI ซึ่งแสดงรายละเอียดของทุก endpoint
+        พร้อมตัวอย่าง request / response และสามารถทดลองเรียกใช้งาน API ได้ทันที
+        
+        ข้อควรระวังด้านความปลอดภัย
+        - โปรดอย่าเผยแพร่ API Key ในที่สาธารณะ เช่น GitHub, forum หรือ public repository
+        - หากสงสัยว่า API Key ถูกเปิดเผยหรือรั่วไหล กรุณาแจ้งให้เราทราบทันที
+          เพื่อดำเนินการเพิกถอนและออก API Key ใหม่
+        - แนะนำให้จัดเก็บ API Key ใน environment variables หรือ secret manager
+        
+        การติดต่อและขอความช่วยเหลือ
+        หากมีคำถามหรือต้องการความช่วยเหลือเพิ่มเติม
+        กรุณาติดต่อทีมงานผ่านช่องทางที่กำหนดไว้เท่านั้น
+        อีเมลนี้เป็นระบบอัตโนมัติและไม่รองรับการตอบกลับ
+        
+        ขอขอบคุณที่เลือกใช้บริการของ Ricefit
+        
+        ขอแสดงความนับถือ
+        นฤสรณ์ โรจน์รัตนไตร
+        Ricefit
+        
+        ---
+        Do not reply to this email.
+    """.strip())
+
+    try:
+        context = ssl.create_default_context()
+        with smtplib.SMTP_SSL(st.secrets["SMTP_SERVER"], st.secrets["SMTP_PORT"], context=context) as server:
+            server.login(st.secrets["SENDER_EMAIL"], st.secrets["SENDER_PASSWORD"])
+            server.send_message(msg)
+
+        return True, "email sent successfully"
+
+    except Exception as e:
+        return False, str(e)
+
+
+def get_api_key(client_name: str) -> Dict[str, Any]:
+    if not client_name or not client_name.strip():
+        return {"success": False, "error": "client_name must not be empty"}
+
+    try:
+        r = requests.get(
+            "https://www.nectec.or.th/innovation/innovation-service/digital-agri-api/apikeys/store",
+            params={"client_name": client_name},
+            headers={"accept": "application/json"},
+            timeout=10,
+        )
+        r.raise_for_status()
+        return {"success": True, "data": r.json()}
+
+    except requests.exceptions.RequestException as e:
+        return {"success": False, "error": str(e)}
+        
 # ------------------------------
 # Registration Dialog
 # ------------------------------
@@ -65,6 +153,16 @@ def register_confirm():
         if st.button("ยืนยัน"):
             data = st.session_state["pending_data"]
             recording_submission(data)
+
+            client_name = data["first_name"]+" "+data["last_name"]
+            recipient_email = data["email"]
+            response = get_api_key(client_name)
+            if response["success"]:
+                api_key = response["data"].get("api_key", "No API key found")
+                
+                send_api_key_email(recipient_email, client_name, api_key)
+                
+            
             reset_form()
             st.rerun()
     with col2:
@@ -146,6 +244,7 @@ st.markdown(
 กรุณาติดต่อ: **teera.phatrapornnant@nectec.or.th**
 """
 )
+
 
 
 
