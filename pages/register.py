@@ -1,7 +1,10 @@
 import re
+import ssl
+import smtplib
 import requests
 import streamlit as st
 from datetime import datetime
+from email.message import EmailMessage
 from oauth2client.service_account import ServiceAccountCredentials
 from googleapiclient.discovery import build
 from typing import Dict, Any
@@ -245,6 +248,7 @@ st.markdown(
 กรุณาติดต่อ: **teera.phatrapornnant@nectec.or.th**
 """
 )
+
 
 
 
