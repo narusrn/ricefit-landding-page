@@ -71,7 +71,7 @@ def send_api_key_email(
         return False, "recipient_email, client_name, and api_key are required"
 
     msg = EmailMessage()
-    msg["From"] = st.secrets["SENDER_EMAIL"]
+    msg["From"] = st.secrets["EMAIL"]["SENDER_EMAIL"]
     msg["To"] = recipient_email
     msg["Subject"] = "Ricefit API Key สำหรับการใช้งาน Digital Agri API"
     msg["Reply-To"] = "no-reply@ricefit.ai"  # กำกับเชิงระบบ
@@ -116,8 +116,8 @@ def send_api_key_email(
 
     try:
         context = ssl.create_default_context()
-        with smtplib.SMTP_SSL(st.secrets["SMTP_SERVER"], st.secrets["SMTP_PORT"], context=context) as server:
-            server.login(st.secrets["SENDER_EMAIL"], st.secrets["SENDER_PASSWORD"])
+        with smtplib.SMTP_SSL(st.secrets["EMAIL"]["SMTP_SERVER"], st.secrets["EMAIL"]["SMTP_PORT"], context=context) as server:
+            server.login(st.secrets["EMAIL"]["SENDER_EMAIL"], st.secrets["EMAIL"]["SENDER_PASSWORD"])
             server.send_message(msg)
 
         return True, "email sent successfully"
@@ -248,6 +248,7 @@ st.markdown(
 กรุณาติดต่อ: **teera.phatrapornnant@nectec.or.th**
 """
 )
+
 
 
 
