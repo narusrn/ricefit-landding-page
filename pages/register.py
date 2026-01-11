@@ -8,17 +8,12 @@ from email.message import EmailMessage
 from oauth2client.service_account import ServiceAccountCredentials
 from googleapiclient.discovery import build
 from typing import Dict, Any
+from utils import sidebar_options
 import sys
 
 st.set_page_config(page_title="RiceFit API (Register)", layout="wide")
 
-st.sidebar.page_link('pages/getting_started.py', label='Getting Started')
-st.sidebar.page_link('pages/register.py', label='Register')
-st.sidebar.page_link('pages/apidocs.py', label='API ที่ให้บริการ')
-st.sidebar.page_link(
-    'pages/rice_phenotype_api_docs.py',
-    label='Rice Phenotype API'
-)
+sidebar_options()
 # ------------------------------
 # Field Definitions
 # ------------------------------
@@ -251,6 +246,7 @@ st.markdown(
 กรุณาติดต่อ: **teera.phatrapornnant@nectec.or.th**
 """
 )
+
 
 
 
