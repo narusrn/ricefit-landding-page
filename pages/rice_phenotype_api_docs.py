@@ -1,4 +1,4 @@
-from utils import sidebar_options()
+from utils import sidebar_options
 import streamlit as st
 import pandas as pd
 import json
