@@ -7,3 +7,7 @@ def sidebar_options():
       'pages/rice_phenotype_api_docs.py',
       label='API ลักษณะพันธุ์ข้าว (Rice Phenotype)'
   )
+  st.sidebar.page_link(
+      'pages/ricefit_api_docs.py',
+      label='API ประเมินความเสี่ยงและแนะนำพันธุ์ข้าว (RiceFit)'
+  )
