@@ -6,6 +6,14 @@ st.set_page_config(
     layout="wide"
 )
 
+st.sidebar.page_link('pages/getting_started.py', label='Getting Started')
+st.sidebar.page_link('pages/register.py', label='Register')
+st.sidebar.page_link('pages/apidocs.py', label='API ที่ให้บริการ')
+st.sidebar.page_link(
+    'pages/rice_phenotype_api_docs.py',
+    label='Rice Phenotype API'
+)
+
 st.title("🌾 RiceFit API – Prediction")
 st.markdown(
     """
