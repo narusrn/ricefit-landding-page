@@ -11,7 +11,7 @@ st.sidebar.page_link('pages/register.py', label='Register')
 st.sidebar.page_link('pages/apidocs.py', label='API ที่ให้บริการ')
 st.sidebar.page_link(
     'pages/rice_phenotype_api_docs.py',
-    label='Rice Phenotype API'
+    label='API ลักษณะพันธุ์ข้าว (Rice Phenotype)'
 )
 
 st.title("🌾 RiceFit API – Prediction")
