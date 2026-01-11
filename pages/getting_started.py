@@ -4,10 +4,8 @@ from utils import sidebar_options
 
 st.set_page_config(page_title="RiceFit API (Home)", layout="wide")
 
-sidebar_options()
-
 # st.sidebar.page_link('app.py', label='Home')
-# st.sidebar.page_link('pages/getting_started.py', label='Getting Started')
+st.sidebar.page_link('pages/getting_started.py', label='Getting Started')
 st.sidebar.markdown("""
 <style>
 /* base style */
@@ -37,6 +35,8 @@ st.sidebar.markdown("""
 <a class="sidebar-subitem" href="#การสมัครการใช้งาน">การสมัครการใช้งาน</a>
 <a class="sidebar-subitem" href="#การยืนยันสิทธิ์การใช้งาน">การยืนยันสิทธิ์การใช้งาน</a>
 """, unsafe_allow_html=True)
+
+sidebar_options()
 
 # st.sidebar.title("เริ่มต้นการใช้งาน Ricefit API")
 
@@ -121,6 +121,7 @@ with col2:
 # -H 'accept: application/json' \
 # -H 'authorization: Bearer <ACCESS_TOKEN>'
 # ```
+
 
 
 
