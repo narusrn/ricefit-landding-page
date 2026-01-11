@@ -213,7 +213,7 @@ with col1:
                 "\n".join([f"- {r}" for r in filtered])
             )
             
-    st.subheader("Response")
+    st.subheader("Response Codes")
 
     df_errors = pd.DataFrame({
         "Code": [400, 401, 404, 500],
