@@ -15,7 +15,10 @@ st.set_page_config(page_title="RiceFit API (Register)", layout="wide")
 st.sidebar.page_link('pages/getting_started.py', label='Getting Started')
 st.sidebar.page_link('pages/register.py', label='Register')
 st.sidebar.page_link('pages/apidocs.py', label='API ที่ให้บริการ')
-
+st.sidebar.page_link(
+    'pages/rice_phenotype_api_docs.py',
+    label='Rice Phenotype API'
+)
 # ------------------------------
 # Field Definitions
 # ------------------------------
@@ -248,6 +251,7 @@ st.markdown(
 กรุณาติดต่อ: **teera.phatrapornnant@nectec.or.th**
 """
 )
+
 
 
 
