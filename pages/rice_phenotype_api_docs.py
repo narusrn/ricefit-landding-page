@@ -1,6 +1,10 @@
+from utils import sidebar_options()
 import streamlit as st
 import pandas as pd
 import json
+
+sidebar_options()
+
 st.set_page_config(
     page_title="RiceFit API – Phenotype",
     layout="wide"
