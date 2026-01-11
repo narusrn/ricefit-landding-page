@@ -5,7 +5,7 @@ from utils import sidebar_options
 st.set_page_config(page_title="RiceFit API (Home)", layout="wide")
 
 # st.sidebar.page_link('app.py', label='Home')
-# st.sidebar.page_link('pages/getting_started.py', label='Getting Started')
+st.sidebar.page_link('pages/getting_started.py', label='Getting Started')
 st.sidebar.markdown("""
 <style>
 /* base style */
