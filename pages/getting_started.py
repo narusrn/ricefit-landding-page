@@ -36,7 +36,10 @@ st.sidebar.markdown("""
 
 st.sidebar.page_link('pages/register.py', label='Register')
 st.sidebar.page_link('pages/apidocs.py', label='API ที่ให้บริการ')
-
+st.sidebar.page_link(
+    'pages/rice_phenotype_api_docs.py',
+    label='Rice Phenotype API'
+)
 # st.sidebar.title("เริ่มต้นการใช้งาน Ricefit API")
 
 # st.sidebar.markdown("""
@@ -120,6 +123,7 @@ with col2:
 # -H 'accept: application/json' \
 # -H 'authorization: Bearer <ACCESS_TOKEN>'
 # ```
+
 
 
 
