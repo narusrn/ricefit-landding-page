@@ -1,4 +1,6 @@
 import streamlit as st
+from utils import sidebar_options 
+# st.sidebar.page_link('app.py', label='Home')
 
 st.set_page_config(page_title="RiceFit API (Home)", layout="wide")
 
@@ -34,12 +36,7 @@ st.sidebar.markdown("""
 <a class="sidebar-subitem" href="#การยืนยันสิทธิ์การใช้งาน">การยืนยันสิทธิ์การใช้งาน</a>
 """, unsafe_allow_html=True)
 
-st.sidebar.page_link('pages/register.py', label='Register')
-st.sidebar.page_link('pages/apidocs.py', label='API ที่ให้บริการ')
-st.sidebar.page_link(
-    'pages/rice_phenotype_api_docs.py',
-    label='Rice Phenotype API'
-)
+sidebar_options()
 # st.sidebar.title("เริ่มต้นการใช้งาน Ricefit API")
 
 # st.sidebar.markdown("""
@@ -123,6 +120,7 @@ with col2:
 # -H 'accept: application/json' \
 # -H 'authorization: Bearer <ACCESS_TOKEN>'
 # ```
+
 
 
 
