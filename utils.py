@@ -11,3 +11,7 @@ def sidebar_options():
       'pages/ricefit_api_docs.py',
       label='API ประเมินความเสี่ยงและแนะนำพันธุ์ข้าว (RiceFit)'
   )
+  st.sidebar.page_link(
+      'pages/ricefit_forecast_api_docs.py',
+      label='API พยากรณ์อากาศและความเสี่ยงข้าวรายวัน (Forecast)'
+  )
