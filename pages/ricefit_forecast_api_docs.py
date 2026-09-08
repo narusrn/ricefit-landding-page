@@ -176,7 +176,7 @@ df_response = pd.DataFrame({
         "Float", "Float", "Int",
         "String (YYYY-MM-DD)", "Float", "Float", "Float", "Float", "Float", "Float",
         "Int", "Int", "Int",
-        "Int (0 หรือ 1)", "Int (0 หรือ 1)", "Int (0 หรือ 1)", "Int (0 หรือ 1)", "Int (0 หรือ 1)"
+        "Int (0 หรือ 1)", "Int (0 หรือ 1)", "Int (0 หรือ 1)", "Int (0 หรือ 1)", "Int (0 หรือ 1)", "Int (0 หรือ 1)"
     ],
     "คำอธิบาย": [
         "ละติจูดที่ร้องขอ",
